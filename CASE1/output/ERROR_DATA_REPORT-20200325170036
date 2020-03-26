@@ -1,0 +1,28 @@
+< Data Error Report. Generated Date: 2020-03-25, 17:00:36 >
+
+Error Data List ↓
+
+             [LOTID]                                    [Error Message]
+0  1000H012M55.0010#  E-20200323172958-N:REEL INFO COM_PART IS NULL-...
+1  0000H011F22.0000#  E-20200324035332-N:REEL INFO COM_PART IS NULL-...
+
+
+<1000H012M55.0010#>
+===============================================================================
+Empty DataFrame
+Columns: [     [EQUIP_ID],      [STRIP_ID],      [COM_LOCATION],      [CREATED_TIME]]
+Index: []
+
+etc...
+===============================================================================
+
+<0000H011F22.0000#>
+===============================================================================
+Empty DataFrame
+Columns: [     [EQUIP_ID],      [STRIP_ID],      [COM_LOCATION],      [CREATED_TIME]]
+Index: []
+
+etc...
+===============================================================================
+
+End of Report.

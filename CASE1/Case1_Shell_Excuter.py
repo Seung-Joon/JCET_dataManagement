@@ -1,19 +1,35 @@
 import os
+import sys
 import json
 from datetime import datetime
 
 timeFlag = datetime.now()
-os.system('/usr/local/bin/python3.7 /home/oracle/Desktop/JCET_FIXDATA/CASE1/Case1_Error_Report.py ' + timeFlag.strftime("%Y-%m-%d, %H:%M:%S") + ' > ' + '/home/oracle/Desktop/JCET_FIXDATA/CASE1/output/ERROR_DATA_REPORT-' + timeFlag.strftime("%Y%m%d%H%M%S"))
+systemInterpreterPath = "/usr/local/bin/python3.7"
+workingAreaPath = os.path.dirname(os.path.abspath(__file__))
+generatorFile = workingAreaPath + "/Case1_Error_Report.py"
+outputFilePath =  workingAreaPath + '/output/ERROR_DATA_REPORT-'
+appSettingDataPath = workingAreaPath + '/AppSettings.json' 
 
-with open('/home/oracle/Desktop/JCET_FIXDATA/CASE1/AppSettings.json') as json_file:
-	appSettingData = json.load(json_file) # Read App Setting Data json file
+
+# 레포트 생성
+os.system(systemInterpreterPath + ' ' + generatorFile + ' ' + timeFlag.strftime("%Y-%m-%d, %H:%M:%S") + # Interpreter pythonFile argv1 argv2
+	   ' > ' + 
+	   outputFilePath  + timeFlag.strftime("%Y%m%d%H%M%S")) #레포트파일
+
+
+# 메일 정보 로딩
+with open(appSettingDataPath) as json_file:
+	appSettingData = json.load(json_file) # App Setting Data 불러옴
+
 
 mail_Settings = appSettingData["mailSettings"]
-
 mail_Target = mail_Settings["addressee"] # 수신인 지정
 mail_carbonCopy = ",".join(mail_Settings["carbonCopy"]) # 참조 지정
 
-#print(mail_carbonCopy)
 
-os.system("mail -s \"Data Error Warning Case 1 - " +  timeFlag.strftime("%Y-%m-%d, %H:%M:%S") + "\" " + mail_Target + " " + mail_carbonCopy + " < /home/oracle/Desktop/JCET_FIXDATA/CASE1/output/ERROR_DATA_REPORT-" + timeFlag.strftime("%Y%m%d%H%M%S"))
-
+# 메일 전송
+os.system("mail -s \"Data Error Warning Case 1 - " +  timeFlag.strftime("%Y-%m-%d, %H:%M:%S") + "\" " + # 제목
+	   mail_Target + " " + # 수신인
+	   mail_carbonCopy + # 참조
+	   " < " + 
+	   outputFilePath + timeFlag.strftime("%Y%m%d%H%M%S")) #레포트 파일
