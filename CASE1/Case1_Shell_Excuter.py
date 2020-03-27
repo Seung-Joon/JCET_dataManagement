@@ -49,7 +49,7 @@ if __name__ == '__main__':
     except NoDataException:
         print("Error!! -> Error Data Is Not Exsist.")
 
-    except NoDataException:
+    except:
         pass
 
 
