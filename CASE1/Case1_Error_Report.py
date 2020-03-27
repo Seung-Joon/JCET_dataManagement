@@ -21,7 +21,6 @@ class NoDataException(Exception):
 if __name__ == "__main__":
     #print("Case1 에러 데이터 받아오는중...\n")
     dataSets = sql.SqlGet.Data_Case1Err_LotID(connection)
-    if (len(list(dataSets)) == 0): raise NoDataException() #에러 처리된 데이터가 없을경우 에러 발생하여 레포트 생성 안되도록 함.
 
     print("< Data Error Report. Generated Date: " + sys.argv[1] + ' ' + sys.argv[2] + " >\n")
     print("Error Data List ↓\n")
