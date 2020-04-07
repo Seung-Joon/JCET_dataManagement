@@ -41,6 +41,6 @@ if __name__ == "__main__":
         columns_id = ['     [EQUIP_ID]', '     [STRIP_ID]', '     [COM_LOCATION]', '     [CREATED_TIME]']
         errData = list(map(list, cursor))
         print(pd.DataFrame(errData, columns=columns_id)) # 데이터 차트 표시
-        print("\netc...")
+        print("\nEnd of data list...")
         print("===============================================================================\n")
 
