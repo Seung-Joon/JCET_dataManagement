@@ -7,11 +7,10 @@ def connection(config):
 
     return conn.cursor()   
 
-def excute(sql, cursor):
-    result = cursor.execute(sql)
-    return result
+def execute(sql, cursor):
+    cursor.execute(sql)
 
-def datatable(sql, cursor):
+def get_datatable(sql, cursor):
     result = cursor.execute(sql)
     table_object = {}
 
