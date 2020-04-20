@@ -5,7 +5,10 @@ def connection(config):
                          config["user_PW"],
                          config["database_IP"] + ":" + config["database_Port"] + "/" + config["database_Sid"])
 
-    return conn.cursor()   
+    return conn
+
+def cursor(connection):
+    return connection.cursor()
 
 def execute(sql, cursor):
     cursor.execute(sql)
@@ -21,4 +24,7 @@ def get_datatable(sql, cursor):
 
     return table_object
 
-    
+def commit(connection):
+    connection.commit()
+
+

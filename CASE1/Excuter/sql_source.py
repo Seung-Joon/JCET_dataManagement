@@ -90,7 +90,7 @@ def upt(lot):
 
     sql = "UPDATE UPTDAT@LINK_CPKMES1"
     sql += "	SET DATA1 = ' ',"
-    sql += "	    DATA2 = ' ','"
+    sql += "	    DATA2 = ' ',"
     sql += "	    DATA3 = ' ',"
     sql += "	    DATA5 = 'Resend: {0}',"
     sql += "	    DATA10 = '{1}'"
