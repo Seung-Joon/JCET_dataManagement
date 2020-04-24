@@ -5,11 +5,6 @@ from models import *
 import json
 
 connectionString = {
-    "user_ID": "rts",
-    "user_PW": "rts4sck0",
-    "database_IP": "10.20.20.56",
-    "database_Port": "1521",
-    "database_Sid": "SKCIMDWH",
 } # DB 연결 정보
 
 
